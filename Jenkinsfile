@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
     agent any
     
     stages {
@@ -10,36 +10,15 @@ pipeline {
         
         stage('Install Dependencies') {
             steps {
-                bat 'python -m pip install -r requirements.txt'
+                bat '"C:\\Path\\To\\Python\\python.exe" -m pip install -r requirements.txt'
             }
         }
         
         stage('Run Tests') {
             steps {
-                bat 'python -m pytest tests/'
+                bat '"C:\\Path\\To\\Python\\python.exe" -m pytest tests/'
             }
         }
-        
-        // Other stages commented out until basics work
-        /*
-        stage('OWASP Dependency Check') {
-            steps {
-                bat 'echo Running dependency check'
-            }
-        }
-        
-        stage('SonarQube Analysis') {
-            steps {
-                bat 'echo Running SonarQube analysis'
-            }
-        }
-        
-        stage('Build Docker Image') {
-            steps {
-                bat 'echo Building Docker image'
-            }
-        }
-        */
     }
     
     post {
