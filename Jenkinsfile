@@ -1,4 +1,4 @@
- pipeline {
+pipeline {
     agent any
     
     stages {
@@ -10,13 +10,13 @@
         
         stage('Install Dependencies') {
             steps {
-                bat '"C:\\Projects\\secure-python-app\\venv\\Scripts\\python.exe" -m pip install -r requirements.txt'
+                bat 'run-python.bat -m pip install -r requirements.txt'
             }
         }
         
         stage('Run Tests') {
             steps {
-                bat '"C:\\Projects\\secure-python-app\\venv\\Scripts\\python.exe" -m pytest tests/'
+                bat 'run-python.bat -m pytest tests/'
             }
         }
     }
